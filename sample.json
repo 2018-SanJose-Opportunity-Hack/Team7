@@ -1,19 +1,69 @@
 {
     "_comment": "This file defines the structures of all the json elements to be used by this application. Each json mentioned in this file will have its own rest api with uri as /{name_of_json} and standard POST, GET, PUT and DELETE methods for a CRUD API",
-
-    "user" : {
-
+    "park": {
+      "id": "a2ad0f1d-1c45-4423-9fbe-cd43b3cf2759",
+      "name": "Eagleton Park",
+      "address": "Eagleton, Indiana",
+      "location": {
+        "lat": 123,
+        "long": 123
+      },
+      "community": "5ab9174b-ace6-4db3-a220-b63a13950f23"
     },
-    "parks":{
-
+    "user": {
+      "id": "0178c1df-b995-4320-b428-ee702bc20d4f",
+      "name": "Some Dude",
+      "phone": "6692350248",
+      "address": "Some dude's address",
+      "email": "somedude@foobar.com",
+      "phone_token": "",
+      "time": "1534625263.093602",
+      "role": "36269737-898f-45d4-965d-a773917d4c68",
+      "location": {
+        "lat": 420.42042,
+        "long": -69.696969
+      },
+      "subscribed_parks": [
+        "a2ad0f1d-1c45-4423-9fbe-cd43b3cf2759",
+        "63b94459-c812-491b-81af-1fa5a30f090a"
+      ]
     },
-    "complaints":{
-
+    "status": {
+      "id": "89cf74ae-5c72-4ef4-9548-99bb73c4f760",
+      "name": "Open / In Progress / Hold / Done"
     },
-    "community":{
-
+    "category": {
+      "id": "f4d7f5e3-4373-4570-ba0c-ba2c82908609",
+      "name": "Fire"
     },
-    "comments":{
-
+    "complaint": {
+      "id": "d05073c8-7678-4c85-8934-aa9e3487f418",
+      "park": "a2ad0f1d-1c45-4423-9fbe-cd43b3cf2759",
+      "user": "0178c1df-b995-4320-b428-ee702bc20d4f",
+      "time": "1534625263.093602",
+      "status": "89cf74ae-5c72-4ef4-9548-99bb73c4f760",
+      "last_updated": "1534625263.093602",
+      "priority": "69d0bd18-4c68-44a3-bba3-05979292eed3",
+      "description": "This is a sample description",
+      "title": "Title Sample",
+      "category": "f4d7f5e3-4373-4570-ba0c-ba2c82908609",
+      "comments": [
+        "59eec576-f768-46be-8c28-c29e9b212ab0",
+        "2be42712-56d1-4b5c-a9af-2265a7a28b21"
+      ]
+    },
+    "community": {
+      "id": "5ab9174b-ace6-4db3-a220-b63a13950f23",
+      "name": "Pawnee"
+    },
+    "role": {
+      "id": "36269737-898f-45d4-965d-a773917d4c68",
+      "name": "User / Admin"
+    },
+    "comments": {
+      "id": "59eec576-f768-46be-8c28-c29e9b212ab0",
+      "user": "0178c1df-b995-4320-b428-ee702bc20d4f",
+      "description": "This is a sample description",
+      "time": "1534625263.093602"
     }
-}
+  }
