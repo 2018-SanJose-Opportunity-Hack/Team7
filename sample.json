@@ -8,7 +8,8 @@
         "lat": 123,
         "long": 123
       },
-      "community": "5ab9174b-ace6-4db3-a220-b63a13950f23"
+      "community": "5ab9174b-ace6-4db3-a220-b63a13950f23",
+      "complaints": ["d05073c8-7678-4c85-8934-aa9e3487f418"]
     },
     "user": {
       "id": "0178c1df-b995-4320-b428-ee702bc20d4f",
@@ -24,8 +25,10 @@
         "long": -69.696969
       },
       "subscribed_parks": [
-        "a2ad0f1d-1c45-4423-9fbe-cd43b3cf2759",
-        "63b94459-c812-491b-81af-1fa5a30f090a"
+        "a2ad0f1d-1c45-4423-9fbe-cd43b3cf2759"
+      ],
+      "supervised_parks": [
+        "a2ad0f1d-1c45-4423-9fbe-cd43b3cf2759"
       ]
     },
     "status": {
@@ -48,8 +51,7 @@
       "title": "Title Sample",
       "category": "f4d7f5e3-4373-4570-ba0c-ba2c82908609",
       "comments": [
-        "59eec576-f768-46be-8c28-c29e9b212ab0",
-        "2be42712-56d1-4b5c-a9af-2265a7a28b21"
+        "59eec576-f768-46be-8c28-c29e9b212ab0"
       ]
     },
     "community": {
@@ -64,6 +66,7 @@
       "id": "59eec576-f768-46be-8c28-c29e9b212ab0",
       "user": "0178c1df-b995-4320-b428-ee702bc20d4f",
       "description": "This is a sample description",
-      "time": "1534625263.093602"
+      "time": "1534625263.093602",
+      "complaint": "d05073c8-7678-4c85-8934-aa9e3487f418"
     }
   }
