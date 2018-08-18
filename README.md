@@ -8,3 +8,8 @@
 * {POST} /login
 ... REQUEST: {"username": "username", "password":"password"}
 ... RESPONSE: user_object (see sample json)
+
+# Steps to create RestAPI:
+
+- virutalenv venv
+- pip install -r requirements 
