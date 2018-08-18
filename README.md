@@ -1,3 +1,7 @@
 # Team7
 
-In Restapi 
+
+# Steps to create RestAPI:
+
+- virutalenv venv
+- pip install -r requirements 
