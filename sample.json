@@ -1,0 +1,19 @@
+{
+    "_comment": "This file defines the structures of all the json elements to be used by this application. Each json mentioned in this file will have its own rest api with uri as /{name_of_json} and standard POST, GET, PUT and DELETE methods for a CRUD API",
+
+    "user" : {
+
+    },
+    "parks":{
+
+    },
+    "complaints":{
+
+    },
+    "community":{
+
+    },
+    "comments":{
+
+    }
+}
