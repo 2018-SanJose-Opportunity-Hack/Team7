@@ -3,6 +3,8 @@
     "park": {
       "id": "a2ad0f1d-1c45-4423-9fbe-cd43b3cf2759",
       "name": "Eagleton Park",
+      "description": "This park is lame. PAWNEE RULES!!",
+      "image_url": "url to S3 bucket",
       "address": "Eagleton, Indiana",
       "location": {
         "lat": 123,
@@ -14,6 +16,7 @@
     "user": {
       "id": "0178c1df-b995-4320-b428-ee702bc20d4f",
       "name": "Some Dude",
+      "image_url": "url to S3 bucket",
       "phone": "6692350248",
       "address": "Some dude's address",
       "email": "somedude@foobar.com",
@@ -43,6 +46,7 @@
       "id": "d05073c8-7678-4c85-8934-aa9e3487f418",
       "park": "a2ad0f1d-1c45-4423-9fbe-cd43b3cf2759",
       "user": "0178c1df-b995-4320-b428-ee702bc20d4f",
+      "image_url": "url to S3 bucket",
       "time": "1534625263.093602",
       "status": "89cf74ae-5c72-4ef4-9548-99bb73c4f760",
       "last_updated": "1534625263.093602",
@@ -68,5 +72,9 @@
       "description": "This is a sample description",
       "time": "1534625263.093602",
       "complaint": "d05073c8-7678-4c85-8934-aa9e3487f418"
+    },
+    "priority":{
+      "id": "5dfbbfd8-b9c8-4185-ab50-b8327938b60f",
+      "name": "HIGH"
     }
   }
