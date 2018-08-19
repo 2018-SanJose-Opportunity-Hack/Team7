@@ -47,7 +47,7 @@ def get_comments(ids, boto_client):
         comment["id"] = id.get("S")
         comment["description"] = item.get("Item").get("description").get("S")
         comment["time"] = item.get("Item").get("time").get("S")
-        comment["callback"] = item.get("Item").get("callback").get("S")
+        
 
         key = {"id": {"S": item.get("Item").get("user").get("S")}}
         try:
@@ -90,6 +90,7 @@ def handler(event, context):
     complaint ["description"] = item.get("Item").get("description").get("S")
     complaint ["last_updated"] = item.get("Item").get("last_updated").get("S")
     complaint ["time"] = item.get("Item").get("time").get("S")
+    complaint["callback"] = item.get("Item").get("callback").get("S")
     
     key = {"id": {"S": item.get("Item").get("park").get("S")}}
     try:

@@ -7,12 +7,13 @@ import time
 def get_complaints(ids, boto_client):
     complaints = []
     for id in ids:
-        key = {"id": {"S": id}}
+        key = {"id": id}
         item = boto_client.get_item(TableName="complaints",Key=key)
         complaint = {}
         complaint["id"] = id
         complaint["title"] = item.get("Item").get("title").get("S")
         complaint["description"] = item.get("Item").get("description").get("S")
+        complaint["time"] = item.get("Item").get("time").get("S")
         
         key = {"id": {"S": item.get("Item").get("user").get("S")}}
         try:

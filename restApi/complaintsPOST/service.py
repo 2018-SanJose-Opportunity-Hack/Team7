@@ -47,10 +47,10 @@ def handler(event, context):
     item ["comments"] = {"L": []}
     try:
         client.put_item(TableName="complaints", Item=item)
-        client.update_item(TableName="parks", Key={"id":event.get("park")},
+        client.update_item(TableName="parks", Key={"id":{"S":event.get("park")}},
                            UpdateExpression="SET #sel = list_append(#sel, :val1)",
                            ExpressionAttributeNames={"#sel": "complaints"},
-                           ExpressionAttributeValues={":val1":{"L":[item.get("id").get("S")]}})
+                           ExpressionAttributeValues={":val1":{"L":[item.get("id")]}})
     except Exception, exception:
         return exception
     event["id"]=item.get("id").get("S")
