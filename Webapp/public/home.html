@@ -35,7 +35,9 @@
     
     <!-- ==== Custom Stylesheet ==== -->
     <link rel="stylesheet" href="css/custom.css">
-
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/home.js"> </script>
+   
     <!-- ==== HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries ==== -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -116,7 +118,7 @@
                     
                     <div class=".btn" data-form="validate">
                         <!-- <button type="submit" class="btn-link"><i class="fa fa-search"></i></button> -->
-                        <button type="submit" class="btn btn-primary">Register a Complaint</button>
+                        <a href="/registercomplaint" class="btn btn-primary">Register a Complaint</a>
                      
                     </div>
                                    
@@ -128,19 +130,19 @@
         <!-- Page Header End -->
 
         <!-- Page Wrapper Start -->
-        <section class="page--wrapper pt--80 pb--20">
+        <section class="page--wrapper pt--80 pb--20" ng-app="home" ng-cloak ng-controller="homeCtrl">
             <div class="container">
                 <div class="row">
                     <!-- Main Content Start -->
                     <div class="main--content col-md-8 pb--30 float--right float--md-none" data-trigger="stickyScroll">
                         <div class="main--content-inner">
                             <div class="row MasonryRow">
-                                <div class="col-sm-6 col-xs-12 pb--30">
+                                <div  ng-repeat="x in parks track by $index" class="col-sm-6 col-xs-12 pb--30">
                                     <!-- Post Item Start -->
                                     <div class="post--item" data-scroll-reveal="bottom">
                                         <!-- Post Image Start -->
                                         <div class="post--img">
-                                            <a href="blog-details.html"><img src="img/parksample2.jpg" alt=""></a>
+                                            <a href={{x.park_url}}><img src={{x.img_url}} height="240" width="360" alt=""></a>
                                         </div>
                                         <!-- Post Image End -->
 
@@ -153,7 +155,7 @@
                                             <!-- Post Title Start -->
                                             <div class="post--title mt--10">
                                                 <h3 class="h6">
-                                                    <a href="blog-details.html" class="btn-link">Park Name</a>
+                                                    <a href="blog-details.html" class="btn-link">{{x.name}}</a>
                                                 </h3>
                                             </div>
                                             <!-- Post Title End -->
@@ -164,7 +166,7 @@
 
                                             <!-- Post Content Start -->
                                             <div class="post--content text-darker mt--10">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
+                                                <p>{{x.description}}</p>
                                             </div>
                                             <!-- Post Content End -->
 
@@ -179,59 +181,6 @@
                                     <!-- Post Item End -->
                                 </div>
 
-
-
-                                <div class="col-sm-6 col-xs-12 pb--30">
-                                    <!-- Post Item Start -->
-                                    <div class="post--item" data-scroll-reveal="bottom">
-                                        <!-- Post Image Start -->
-                                        <div class="post--img">
-                                            <a href="blog-details.html"><img src="img/parksample2.jpg" alt=""></a>
-                                        </div>
-                                        <!-- Post Image End -->
-
-                                        <!-- Post Info Start -->
-                                        <div class="post--info">
-                                            <!-- Post Meta Start -->
-                                            
-                                            <!-- Post Meta End -->
-
-                                            <!-- Post Title Start -->
-                                            <div class="post--title mt--10">
-                                                <h3 class="h6">
-                                                    <a href="blog-details.html" class="btn-link">Park Name</a>
-                                                </h3>
-                                            </div>
-                                            <!-- Post Title End -->
-
-                                            <!-- Post Meta Start -->
-                                            
-                                            <!-- Post Meta End -->
-
-                                            <!-- Post Content Start -->
-                                            <div class="post--content text-darker mt--10">
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
-                                            </div>
-                                            <!-- Post Content End -->
-
-                                            <!-- Post Action Start -->
-                                            <div class="post--action text-darkest mt--8">
-                                                <a href="blog-details.html" class="btn-link">Continue Reading<i class="ml--10 text-primary fa fa-caret-right"></i></a>
-                                            </div>
-                                            <!-- Post Action End -->
-                                        </div>
-                                        <!-- Post Info End -->
-                                    </div>
-                                    <!-- Post Item End -->
-                                </div>
-
-
-
-
-
-                             
-
-                                
                             </div>
                         </div>
                     </div>

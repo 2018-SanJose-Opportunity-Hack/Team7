@@ -35,6 +35,8 @@
     
     <!-- ==== Custom Stylesheet ==== -->
     <link rel="stylesheet" href="css/custom.css">
+    <script src = "js/utils.js"></script>
+    <script src = "js/authentication.js"></script>
 
     <!-- ==== HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries ==== -->
     <!--[if lt IE 9]>
@@ -139,11 +141,11 @@
 
                                             <!-- Buddy Finder Widget Start -->
                                             <div class="buddy-finder--widget">
-                                                <form action="#">
+                                                <form>
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <input type="text" name="User ID" placeholder="User ID" class="form-control" autocomplete="off" required>
+                                                                <input type="text" name="email" id="email"  placeholder="Email ID" value="pranavprem93@gmail.com" class="form-control" autocomplete="off" required>
 
                                                                                                           
                                                             </div>
@@ -151,14 +153,14 @@
 
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <input type="password" name="Password" placeholder="password" class="form-control" autocomplete="off" required>
+                                                                <input type="password" name="password" id="password" placeholder="password" value="password" class="form-control" autocomplete="off" required>
                                                                
                                                             </div>
                                                         </div>
 
                                                         
                                                         <div class="col-md-12">
-                                                            <button type="submit" class="btn btn-primary">Login</button>
+                                                            <button type="button" class="btn btn-primary" onclick="login()" >Login</button>
                                                         </div>
                                                     </div>
                                                 </form>
