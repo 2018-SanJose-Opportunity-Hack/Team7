@@ -15,6 +15,13 @@ var get_parks_url = rest_api_url + "/parks";
 
 //categories url
 var get_categories_url = rest_api_url + "/categories";
+var comments_url = rest_api_url + "/comments";
+
+var comments_args = {
+      "user": "",
+      "description": "",
+      "complaint": ""
+    };
 
 var complaints_url = rest_api_url + "/complaints";
 
@@ -47,12 +54,29 @@ module.exports = function(app){
 	  utils.redirectToPage("home.html",req,res);
 	});
 
+	/* GET home page. */
+	app.get('/adminhome', function(req, res) {
+	  utils.redirectToPage("admin-home.html",req,res);
+	});
+
 	app.get('/registercomplaint', function(req, res) {
 	  utils.redirectToPage("complaint.html",req,res);
 	});
 
 	app.get('/park/:id', function(req, res) {
 	  utils.redirectToPage("park.html",req,res);
+	});
+
+	app.get('/adminpark/:id', function(req, res) {
+	  utils.redirectToPage("admin-park.html",req,res);
+	});
+
+	app.get('/issue/:id', function(req, res) {
+	  utils.redirectToPage("issue-details.html",req,res);
+	});
+
+	app.get('/adminissue/:id', function(req, res) {
+	  utils.redirectToPage("admin-issue-details.html",req,res);
 	});
 
 	app.get('/processlogin', function(req, res) {
@@ -65,6 +89,26 @@ module.exports = function(app){
 
 	app.get('/getparks', function(req, res) {
 	  rest_helper.sendRestGetRequest(get_parks_url,getCallback,req,res);
+	});
+
+	app.get('/getpark', function(req, res) {
+	  var parkId = req.query.parkId;
+	  var url = get_parks_url+"/"+parkId;
+	  rest_helper.sendRestGetRequest(url,getCallback,req,res);
+	});
+
+	app.get('/getcomplaint', function(req, res) {
+	  var complaintId = req.query.complaintId;
+	  var url = complaints_url+"/"+complaintId;
+	  rest_helper.sendRestGetRequest(url,getCallback,req,res);
+	});
+
+	app.get('/postComment', function(req, res) {
+	  comments_args.complaint = req.query.complaintId;
+	  comments_args.description = req.query.description;
+	  comments_args.user = req.session.userid;
+	  console.log(comments_args);
+	  rest_helper.sendRestPostRequest(comments_url,comments_args,getCallback,req,res);
 	});
 
 	app.get('/getcategories', function(req, res) {
@@ -83,5 +127,12 @@ module.exports = function(app){
 	  rest_helper.sendRestPostRequest(complaints_url,complaint_args,postComplaintCallback,req,res);
 	});
 
+	app.get('/putComplaint', function(req, res) {
+		args = {};
+		args.status = req.query.status;
+		args.priority = "5dfbbfd8-b9c8-4185-ab50-b8327938b60f";
+		rest_helper.sendRestPutRequest(complaints_url+"/"+req.query.complaintId,args,getCallback,req,res);
+	});
+	
     //other routes..
 }

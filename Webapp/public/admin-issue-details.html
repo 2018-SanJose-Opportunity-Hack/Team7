@@ -19,23 +19,26 @@
     <link rel="icon" href="favicon.png" type="image/png">
 
     <!-- ==== Google Font ==== -->
-    <link rel="stylesheet" href="../../../../fonts.googleapis.com/cssaba8.css?family=Raleway:400,500,600,700%7CRoboto:300,400,400i,500,700">
+    <link rel="stylesheet" href="../../../../../fonts.googleapis.com/cssaba8.css?family=Raleway:400,500,600,700%7CRoboto:300,400,400i,500,700">
 
     <!-- ==== Plugins Bundle ==== -->
-    <link rel="stylesheet" href="css/plugins.min.css">
+    <link rel="stylesheet" href="../css/plugins.min.css">
     
     <!-- ==== Main Stylesheet ==== -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     
     <!-- ==== Responsive Stylesheet ==== -->
-    <link rel="stylesheet" href="css/responsive-style.css">
+    <link rel="stylesheet" href="../css/responsive-style.css">
     
     <!-- ==== Color Scheme Stylesheet ==== -->
-    <link rel="stylesheet" href="css/colors/color-1.css" id="changeColorScheme">
+    <link rel="stylesheet" href="../css/colors/color-1.css" id="changeColorScheme">
     
     <!-- ==== Custom Stylesheet ==== -->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="../css/custom.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="../js/admin-issue.js"> </script>
+   
     <!-- ==== HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries ==== -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -51,7 +54,7 @@
     <!-- Preloader End -->
 
     <!-- Wrapper Start -->
-    <div class="wrapper">
+    <div class="wrapper"  ng-app="admin-issue" ng-cloak ng-controller="admin-issueCtrl">
  <header class="header--section style--3">
             <!-- Header Topbar Start -->
             
@@ -100,10 +103,10 @@
         <!-- Header Section End -->
 
         <!-- Page Header Start -->
-        <div class="page--header pt--60 pb--60 text-center" data-bg-img="img/indexbg.jpg" data-overlay="0.5">
+        <div class="page--header pt--60 pb--60 text-center" data-bg-img="../img/indexbg.jpg" data-overlay="0.5">
             <div class="container">
                 <div class="title">
-                    <h2 class="h1 text-white">Park Name - Issue Title  </h2>
+                    <h2 class="h1 text-white">{{parkName}} - {{issue_name}}   </h2>
                 </div>
 
                 <ul class="breadcrumb text-gray ff--primary">
@@ -126,7 +129,7 @@
                             <div class="post--item post--single pb--30">
                                 <!-- Post Image Start -->
                                 <div class="post--img">
-                                    <a href="blog-details.html"><img src="img/issuesample.jpg" alt=""></a>
+                                    <a href="blog-details.html"><img src={{complaint_img}}  alt=""></a>
                                 </div>
                                 <!-- Post Image End -->
 
@@ -138,7 +141,7 @@
                                             <li>
                                                 <a href="#">
                                                     <i class="mr--8 fa fa-calendar-o"></i>
-                                                    <span>05 Nov 2017</span>
+                                                    <span>{{time}}</span>
                                                 </a>
                                             </li>
                                             
@@ -154,26 +157,7 @@
 
                                     <!-- Post Content Start -->
                                     <div class="post--content text-darker mt--10">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus</p>
-
-                                        
-
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look accident, sometimes on purpose (injected humour and the like).</p>
-
-                                       
-
-                                       
-
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum software like Aldus as opposed to using 'Content here, content here', making has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen trusted by holly book.</p>
-
-                                        <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop  sometimes on purpose (injected humour and the like).</p>
-
-                                       
-
-                                      
-                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
-
-                                        <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore.</p>
+                                        {{description}}
                                     </div>
                                     <!-- Post Content End -->
 
@@ -190,26 +174,26 @@
 
                             <!-- Comment List Start -->
                             <div class="comment--list pt--40">
-                                <h4 class="h4 pb--20">03 Comments</h4>
+                                <h4 class="h4 pb--20">{{numberOfComments}} Comments</h4>
 
-                                <ul class="comment--items nav">
+                                <ul class="comment--items nav" ng-repeat="x in comments track by $index">
                                     <li>
                                         <!-- Comment Item Start -->
                                         <div class="comment--item mr--15 clearfix">
                                             <div class="img float--left" data-overlay="0.3" data-overlay-color="primary">
-                                                <img src="img/comments-img/avatar-01.jpg" alt="">
+                                                <img src={{x.user_img}}  alt="">
                                             </div>
 
                                             <div class="info ov--h">
                                                 <div class="header clearfix">
                                                     <div class="meta float--left">
                                                         <p class="fs--14 fw--700 text-darkest">
-                                                            <a href="#">Denise R. Sherman</a>
+                                                            <a href="#">{{x.user_name}}</a>
                                                         </p>
 
                                                         <p>
                                                             <i class="mr--10 fa fa-clock-o"></i>
-                                                            <span>Yesterday at 08:20 am</span>
+                                                            <span>{{x.timestamp}}</span>
                                                         </p>
                                                     </div>
 
@@ -217,7 +201,7 @@
                                                 </div>
 
                                                 <div class="content pt--8 fs--14">
-                                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration  If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything.</p>
+                                                    <p>{{x.description}}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -226,67 +210,6 @@
                                        
                                     </li>
 
-                                    <li>
-                                        <!-- Comment Item Start -->
-                                        <div class="comment--item mr--15 clearfix">
-                                            <div class="img float--left" data-overlay="0.3" data-overlay-color="primary">
-                                                <img src="img/comments-img/avatar-03.jpg" alt="">
-                                            </div>
-
-                                            <div class="info ov--h">
-                                                <div class="header clearfix">
-                                                    <div class="meta float--left">
-                                                        <p class="fs--14 fw--700 text-darkest">
-                                                            <a href="#">Eugene E. Thompson</a>
-                                                        </p>
-
-                                                        <p>
-                                                            <i class="mr--10 fa fa-clock-o"></i>
-                                                            <span>Yesterday at 08:20 am</span>
-                                                        </p>
-                                                    </div>
-
-                                                    
-                                                </div>
-
-                                                <div class="content pt--8 fs--14">
-                                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration  If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Comment Item End -->
-                                    </li>
-
-                                    <li>
-                                        <!-- Comment Item Start -->
-                                        <div class="comment--item mr--15 clearfix">
-                                            <div class="img float--left" data-overlay="0.3" data-overlay-color="primary">
-                                                <img src="img/comments-img/avatar-04.jpg" alt="">
-                                            </div>
-
-                                            <div class="info ov--h">
-                                                <div class="header clearfix">
-                                                    <div class="meta float--left">
-                                                        <p class="fs--14 fw--700 text-darkest">
-                                                            <a href="#">Carol M. Rodriguez</a>
-                                                        </p>
-
-                                                        <p>
-                                                            <i class="mr--10 fa fa-clock-o"></i>
-                                                            <span>Yesterday at 08:20 am</span>
-                                                        </p>
-                                                    </div>
-
-                                                    
-                                                </div>
-
-                                                <div class="content pt--8 fs--14">
-                                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration  If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Comment Item End -->
-                                    </li>
                                 </ul>
                             </div>
                             <!-- Comment List End -->
@@ -329,16 +252,17 @@
                                                 <label>
                                                     <!-- <span class="text-darker ff--primary fw--500">Park</span> -->
 
-                                                    <select name="status" class="form-control form-sm" data-trigger="selectmenu">
+                                                    <select name="status" id="status" class="form-control form-sm" data-trigger="selectmenu">
 
-                                                        <option value="Park1" name="Park1">Open</option>
-                                                        <option value="Park2" name="Park2">Closed</option>
-                                                        <option value="Park3" name="Park3">In Progress</option>
+                                                        <option value="89cf74ae-5c72-4ef4-9548-99bb73c4f760" name="Park1">Open</option>
+                                                        <option value="792d064a-890c-438b-8f92-6ec961cb1ee5" name="Park2">In Progress</option>
+                                                        <option value="d8fdd095-4265-4c32-98b9-d4a8852b7a5f" name="Park2">Hold</option>
+                                                        <option value="50e6add2-da42-4645-a25c-e7240ad5f56f" name="Park3">Done</option>
                                                     </select>
                                                 </label>
                                                 <div class="col-xs-12">
                                                     <br/>
-                                            <button type="submit" class="btn btn-primary">Update</button>
+                                            <button type="button" onclick="updatestatus()" class="btn btn-primary">Update</button>
                                         </div>
 
                                             </div>
@@ -382,12 +306,12 @@
     <!-- Back To Top Button End -->
 
     <!-- ==== Plugins Bundle ==== -->
-    <script src="js/plugins.min.js"></script>
+    <script src="../js/plugins.min.js"></script>
 
     
 
     <!-- ==== Main Script ==== -->
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
 
 </body>
 

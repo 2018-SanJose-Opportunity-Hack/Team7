@@ -80,6 +80,8 @@ app.controller("complaintCtrl", function($scope,$http) {
 // When the user clicks on the button, open the modal 
     btn.onclick = function() {
     modal.style.display = "block";
+    var output = similarityCheck(document.getElementById("title").value);
+                                                console.log(output);
 }
 
 // When the user clicks on <span> (x), close the modal

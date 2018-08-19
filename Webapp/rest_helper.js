@@ -44,6 +44,22 @@ module.exports = {
 		  console.log(body);
 		});
 
+	},
+	sendRestPutRequest : function(url,args,callback,req,res){
+
+		var options = { method: 'PUT',
+						  url: url,
+						  headers: 
+						   {'content-type': 'application/json' },
+						   body: JSON.stringify(args)  };
+
+						   console.log(options);
+		request(options, function (error, response, body) {
+		  if (error) throw new Error(error);
+		  callback(body,response.statusCode,req,res);
+		  console.log(body);
+		});
+
 	}
 }
 

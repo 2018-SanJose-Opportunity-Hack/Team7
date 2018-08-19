@@ -19,22 +19,26 @@
     <link rel="icon" href="favicon.png" type="image/png">
 
     <!-- ==== Google Font ==== -->
-    <link rel="stylesheet" href="../../../../fonts.googleapis.com/cssaba8.css?family=Raleway:400,500,600,700%7CRoboto:300,400,400i,500,700">
+    <link rel="stylesheet" href="../../../../../fonts.googleapis.com/cssaba8.css?family=Raleway:400,500,600,700%7CRoboto:300,400,400i,500,700">
 
     <!-- ==== Plugins Bundle ==== -->
-    <link rel="stylesheet" href="css/plugins.min.css">
+    <link rel="stylesheet" href="../css/plugins.min.css">
     
     <!-- ==== Main Stylesheet ==== -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     
     <!-- ==== Responsive Stylesheet ==== -->
-    <link rel="stylesheet" href="css/responsive-style.css">
+    <link rel="stylesheet" href="../css/responsive-style.css">
     
     <!-- ==== Color Scheme Stylesheet ==== -->
-    <link rel="stylesheet" href="css/colors/color-1.css" id="changeColorScheme">
+    <link rel="stylesheet" href="../css/colors/color-1.css" id="changeColorScheme">
     
     <!-- ==== Custom Stylesheet ==== -->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="../css/custom.css">
+
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="../js/admin-park.js"> </script>
+  
 
     <!-- ==== HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries ==== -->
     <!--[if lt IE 9]>
@@ -51,7 +55,7 @@
     <!-- Preloader End -->
 
     <!-- Wrapper Start -->
-    <div class="wrapper">
+    <div class="wrapper"  ng-app="admin-park" ng-cloak ng-controller="admin-parkCtrl">
  <header class="header--section style--3">
             <!-- Header Topbar Start -->
             
@@ -71,7 +75,7 @@
                         <!-- Header Navbar Logo Start -->
                         <div class="header--navbar-logo navbar-brand">
                             <a href="index.html">
-                                <img src="img/SanJoseLogo.png" alt="" height="90" width="100">
+                                <img src="../img/SanJoseLogo.png" alt="" height="90" width="100">
                             </a>
                         </div>
                         <!-- Header Navbar Logo End -->
@@ -100,10 +104,10 @@
         <!-- Header Section End -->
 
         <!-- Page Header Start -->
-        <div class="page--header pt--60 pb--60 text-center" data-bg-img="img/indexbg.jpg" data-overlay="0.5">
+        <div class="page--header pt--60 pb--60 text-center" data-bg-img="../img/indexbg.jpg" data-overlay="0.5">
             <div class="container">
                 <div class="title">
-                    <h2 class="h1 text-white">PARK NAME </h2>
+                    <h2 class="h1 text-white">{{parkName}} </h2>
                 </div>
 
                 <ul class="breadcrumb text-gray ff--primary">
@@ -130,19 +134,19 @@
                                         <div class="tab-content" >
                                             <div class="tab-pane fade in active" id="productImg01">
                                                 <!-- <div data-trigger="popover"> -->
-                                                    <img src="img/parksample.jpg" alt="" >
+                                                    <img src="../img/parksample.jpg" alt="" >
                                                 <!-- </div> -->
                                             </div>
 
                                             <div class="tab-pane fade" id="productImg02">
                                                 <!-- <div data-trigger="zoom"> -->
-                                                    <img src="img/parksample1.jpeg" alt="">
+                                                    <img src="../img/parksample1.jpeg" alt="">
                                                 <!-- </div> -->
                                             </div>
 
                                             <div class="tab-pane fade" id="productImg03">
                                                 <!-- <div data-trigger="zoom"> -->
-                                                    <img src="img/parksample2.jpg" alt="">
+                                                    <img src="../img/parksample2.jpg" alt="">
                                                 <!-- </div> -->
                                             </div>
                                         </div>
@@ -151,19 +155,19 @@
                                         <!-- Owl Carousel Start -->
                                         <div class="owl-carousel" data-owl-items="3" data-owl-loop="false" data-owl-margin="10" data-owl-nav="true">
                                             <a href="#productImg01" data-toggle="tab">
-                                                <img src="img/parksample.jpg" alt="">
+                                                <img src="../img/parksample.jpg" alt="">
                                             </a>
 
                                             <a href="#productImg02" data-toggle="tab">
-                                                <img src="img/parksample1.jpeg" alt="">
+                                                <img src="../img/parksample1.jpeg" alt="">
                                             </a>
 
                                             <a href="#productImg03" data-toggle="tab">
-                                                <img src="img/parksample2.jpg" alt="">
+                                                <img src="../img/parksample2.jpg" alt="">
                                             </a>
 
                                             <a href="#productImg02" data-toggle="tab">
-                                                <img src="img/parksample1.jpeg" alt="">
+                                                <img src="../img/parksample1.jpeg" alt="">
                                             </a>
                                         </div>
                                         <!-- Owl Carousel End -->
@@ -175,20 +179,19 @@
                                     <!-- Product Summery Start -->
                                     <div class="product--summery fs--14">
                                         <div class="title">
-                                            <h3 class="h4">Park Name</h3>
+                                            <h3 class="h4">{{parkName}} </h3>
                                         </div>
 
                                         
 
                                         <div class="stock text-darkest">
                                             <ul class="nav">
-                                                <li>Number <span>Address</span></li>
-                                                <li><span>Street</span></li>
+                                                <li>{{address}}</li>
                                             </ul>
                                         </div>
 
                                         <div class="desc">
-                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                            <p>{{description}}</p>
                                         </div>
 
                                        
@@ -214,93 +217,35 @@
 
                                 <!-- Tab Pane Start -->
                                 <div class="topics--list" id="produtDetailsTab03" >
-                                    <h4 class="h4 pt--20 pb--20"># of Issues : 03 </h4>
+                                    <h4 class="h4 pt--20 pb--20"># of Issues : {{numberOfIssues}} </h4>
 
                                     <!-- Review Items Start -->
-                                    <ul class="review--items nav">
+                                    <ul  ng-repeat="x in complaints track by $index" class="review--items nav">
                                         <li>
                                             <!-- Review Item Start -->
                                             <div class="review--item clearfix">
                                                 <div class="img mr--15 float--left" data-overlay="0.3" data-overlay-color="primary">
-                                                    <img src="img/persona1.jpeg" alt="">
+                                                    <img src={{x.user_img}} alt="">
                                                 </div>
 
                                                 <div class="info ov--h">
                                                     <div class="header clearfix">
                                                         <div class="meta float--left">
-                                                            <p class="fs--14 fw--700 text-darkest mb--0">Denise R. Sherman</p>
+                                                            <p class="fs--14 fw--700 text-darkest mb--0">{{x.user_name}}</p>
 
-                                                            <p><i class="fa fa-clock-o mr--10"></i>Yesterday at 08:20 am</p>
-                                                             <a href="admin-issue-details.html" class="btn-link">
-                                                            <p>Issue 01 </p> 
+                                                            <p><i class="fa fa-clock-o mr--10"></i>{{x.timestamp}}</p>
+                                                             <a href={{x.issue_url}} class="btn-link">
+                                                            <p>{{x.title}} </p> 
                                                         </div>
 
                                                         
                                                     </div>
 
                                                     <div class="content--inner fs--14 mt--8">
-                                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration  If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything.</p>
+                                                        <p>{{x.description}}</p>
                                                     </div>
 
-                                                    <p>Status : In Progress </p>
-                                                </a>
-                                                </div>
-                                            </div>
-                                            <!-- Review Item End -->
-                                        </li>
-                                        <li>
-                                            <!-- Review Item Start -->
-                                            <div class="review--item clearfix">
-                                                <div class="img mr--15 float--left" data-overlay="0.3" data-overlay-color="primary">
-                                                    <img src="img/persona2.jpg" alt="">
-                                                </div>
-
-                                                <div class="info ov--h">
-                                                    <div class="header clearfix">
-                                                        <div class="meta float--left">
-                                                            <p class="fs--14 fw--700 text-darkest mb--0">Eugene E. Thompson</p>
-                                                           
-                                                            <p><i class="fa fa-clock-o mr--10"></i>1 Month ago</p>
-                                                            <a href="admin-issue-details.html" class="btn-link">
-                                                            <p>Issue 02 </p>  
-                                                        </div>
-
-                                                        
-                                                    </div>
-
-                                                    <div class="content--inner fs--14 mt--8">
-                                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration  If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything.</p>
-                                                    </div>
-                                                    <p> Status : Open </p>
-                                                </a>
-                                                </div>
-                                            </div>
-                                            <!-- Review Item End -->
-                                        </li>
-                                        <li>
-                                            <!-- Review Item Start -->
-                                            <div class="review--item clearfix">
-                                                <div class="img mr--15 float--left" data-overlay="0.3" data-overlay-color="primary">
-                                                    <img src="img/persona3.jpeg" alt="">
-                                                </div>
-
-                                                <div class="info ov--h">
-                                                    <div class="header clearfix">
-                                                        <div class="meta float--left">
-                                                            <p class="fs--14 fw--700 text-darkest mb--0">Carol M. Rodriguez</p>
-
-                                                            <p><i class="fa fa-clock-o mr--10"></i>2 Month and 4 days ago</p>
-                                                            <a href="admin-issue-details.html" class="btn-link">
-                                                            <p>Issue 03 </p>  
-                                                        </div>
-
-                                                        
-                                                    </div>
-
-                                                    <div class="content--inner fs--14 mt--8">
-                                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration  If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything.</p>
-                                                    </div>
-                                                    <p> Status : Closed </p>
+                                                    <p>Status : {{x.status}} </p>
                                                 </a>
                                                 </div>
                                             </div>
@@ -355,12 +300,12 @@
     <!-- Back To Top Button End -->
 
     <!-- ==== Plugins Bundle ==== -->
-    <script src="js/plugins.min.js"></script>
+    <script src="../js/plugins.min.js"></script>
 
     
 
     <!-- ==== Main Script ==== -->
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
 
 </body>
 
