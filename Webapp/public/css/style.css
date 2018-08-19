@@ -2718,6 +2718,7 @@ label > span {
 .product--details .tab-pane > .content--inner {
     padding: 20px;
     border: 1px solid #f7f8f9;
+    overflow: auto;
 }
 
 /* 3.26. CART COUPON */
