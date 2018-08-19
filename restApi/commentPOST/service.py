@@ -14,10 +14,10 @@ def handler(event, context):
                 "S": event.get("description")
             },
             "user": {
-                "S": event.get("user_id")
+                "S": event.get("user")
             },
             "complaint": {
-                "S": event.get("complaint_id")
+                "S": event.get("complaint")
             },
             "id": {
                 "S": str(uuid.uuid4())
@@ -25,6 +25,11 @@ def handler(event, context):
         }
     try:
         client.put_item(TableName="comments", Item=item)
+        # client.update_item(TableName="complaints", Key={"id":item.get("complaint")}, UpdateExpression="set complaints=:c", ExpressionAttributeValues={":c":complaint.get("comments")})
+        client.update_item(TableName="complaints", Key={"id":item.get("complaint")},
+                           UpdateExpression="SET #sel = list_append(#sel, :val1)",
+                           ExpressionAttributeNames={"#sel": "comments"},
+                           ExpressionAttributeValues={":val1":{"L":[item.get("id")]}})
     except Exception, exception:
         return exception
     event["id"]=item.get("id").get("S")

@@ -16,6 +16,7 @@
     "user": {
       "id": "0178c1df-b995-4320-b428-ee702bc20d4f",
       "name": "Some Dude",
+      "password": "password",
       "image_url": "url to S3 bucket",
       "phone": "6692350248",
       "address": "Some dude's address",
@@ -54,6 +55,7 @@
       "description": "This is a sample description",
       "title": "Title Sample",
       "category": "f4d7f5e3-4373-4570-ba0c-ba2c82908609",
+      "callback":"Yes/No",
       "comments": [
         "59eec576-f768-46be-8c28-c29e9b212ab0"
       ]
