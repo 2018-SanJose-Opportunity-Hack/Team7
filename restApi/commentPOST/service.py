@@ -8,7 +8,7 @@ def handler(event, context):
     client = boto3.client("dynamodb")
     item = {
             "time": {
-                "S": str(time.time())
+                "S": time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
             },
             "description": {
                 "S": event.get("description")

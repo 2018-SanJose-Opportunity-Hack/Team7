@@ -14,6 +14,14 @@ def get_complaints(ids, boto_client):
         complaint["title"] = item.get("Item").get("title").get("S")
         complaint["description"] = item.get("Item").get("description").get("S")
         complaint["time"] = item.get("Item").get("time").get("S")
+
+        key = {"id": {"S": item.get("Item").get("status").get("S")}}
+        status_item = boto_client.get_item(TableName="status", Key=key)
+        status = dict()
+        status["id"] = status_item["Item"]["id"]["S"]
+        status["name"] = status_item["Item"]["name"]["S"]
+
+        complaint["status"] = status
         
         key = {"id": {"S": item.get("Item").get("user").get("S")}}
         try:

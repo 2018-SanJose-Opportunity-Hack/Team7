@@ -36,7 +36,7 @@ def handler(event, context):
                 "S": event.get("phone_token")
             },
             "time": {
-                "S": str(time.time())
+                "S": time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
             },
             "role": {
                 "S": event.get("role")
