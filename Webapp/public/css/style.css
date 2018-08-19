@@ -2919,6 +2919,10 @@ body.isScrolling #backToTop {
     margin-top: 2px;
 }
 
+.section--title .title .h2C {
+    margin-top: 2px;
+    text-align: center;
+}
 .section--title .sub-title {
     display: inline-block;
     max-width: 400px;
